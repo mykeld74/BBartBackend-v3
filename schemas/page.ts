@@ -19,7 +19,21 @@ export default defineType({
         maxLength: 96,
       },
     }),
-
+    defineField({
+      name: 'navTitle',
+      title: 'Navigation Title',
+      type: 'string',
+    }),
+    defineField({
+      name: 'order',
+      title: 'Order',
+      type: 'number',
+    }),
+    defineField({
+      name: 'navCategory',
+      type: 'array',
+      of: [{type: 'reference', to: {type: 'navCategory'}}],
+    }),
     defineField({
       name: 'body',
       title: 'Body',
@@ -32,13 +46,6 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      fields: [
-        {
-          title: 'Alternative Text',
-          name: 'alt',
-          type: 'string',
-        },
-      ],
     }),
     defineField({
       name: 'secondaryImage',
@@ -47,19 +54,13 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      fields: [
-        {
-          title: 'Alternative Text',
-          name: 'alt',
-          type: 'string',
-        },
-      ],
     }),
   ],
 
   preview: {
     select: {
       title: 'title',
+      media: 'mainImage',
     },
   },
 })
