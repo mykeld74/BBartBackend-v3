@@ -24,3 +24,6 @@
 
 # Typescript
 *.tsbuildinfo
+
+# Generated schema extract
+/schema.json
